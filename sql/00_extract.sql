@@ -61,7 +61,8 @@ COPY (
         numberOfUnits,
         primaryResidenceIndicator, 
         causeOfDamage, 
-        crsClassCode
+        crsClassCode,
+        condominiumCoverageTypeCode
 
         FROM read_csv('data/raw_claims_data.csv', sample_size = -1)
 
