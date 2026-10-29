@@ -1,0 +1,21 @@
+# SQLFluff configuration
+# SQLFluff is a SQL linter and formatter (https://sqlfluff.com).
+# This project uses it only to keep capitalization consistent in the
+# .sql files: SQL keywords and functions in uppercase, column names
+# left as they are. It does not change what any query does.
+#
+# To apply it:  sqlfluff fix sql/<file>.sql
+
+[sqlfluff]
+# Read the SQL as DuckDB's dialect, so DuckDB-specific syntax isn't flagged
+dialect = duckdb
+# Only run the two capitalization rules; skip all other formatting rules
+rules = capitalisation.keywords, capitalisation.functions
+
+[sqlfluff:rules:capitalisation.keywords]
+# Keywords (SELECT, FROM, WHERE, AS, DISTINCT...) in uppercase
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.functions]
+# Functions (COUNT, SUM, COALESCE, NULLIF...) in uppercase
+extended_capitalisation_policy = upper
